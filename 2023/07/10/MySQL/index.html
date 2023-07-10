@@ -936,8 +936,9 @@
 <h3 id="4-4-联表查询"><a href="#4-4-联表查询" class="headerlink" title="4.4 联表查询"></a>4.4 联表查询</h3><blockquote>
 <p>JOIN 对比</p>
 </blockquote>
+<p><img src="/2023/07/10/MySQL/20200708013553742-1689003183749.png"></p>
 <p><img src="/2023/07/10/MySQL/20200708013553742.png"></p>
-<p><img src="/2023/07/10/MySQL/20200708013558863.png" alt="在这里插入图片描述"></p>
+<p><img src="/2023/07/10/MySQL/20200708013558863.png"></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span>联表查询 <span class="keyword">join</span> <span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span><span class="operator">=</span></span><br><span class="line"><span class="comment">-- 查询参加考试的同学 （学号，姓名，考试编号，分数）</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> student </span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> <span class="keyword">result</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1. 分析需求，分析查询的字段来自哪些表</span></span><br><span class="line"><span class="comment">2.确定使用哪种连接查询？7种</span></span><br><span class="line"><span class="comment">确定交叉点（这两个表中哪个数据是相同的）</span></span><br><span class="line"><span class="comment">判断的条件： 学生表中 studentNo = 成绩表中 studentNo </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- JION（表） ON （判断的条件）连接查询</span></span><br><span class="line"><span class="comment">-- where 等值查询</span></span><br><span class="line"><span class="keyword">SELECT</span> studentNo,studentName,SubjectNo,StudentResult</span><br><span class="line"><span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> <span class="keyword">result</span> <span class="keyword">AS</span> r</span><br><span class="line"><span class="keyword">WHERE</span> s.studentNo<span class="operator">=</span>r.studentNo</span><br><span class="line"></span><br><span class="line"><span class="comment">--Right Join</span></span><br><span class="line"><span class="keyword">SELECT</span> s.studentNo,studentName,SubjectNo,StudentResult</span><br><span class="line"><span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> <span class="keyword">result</span> <span class="keyword">AS</span> r</span><br><span class="line"><span class="keyword">ON</span> s.studentNo <span class="operator">=</span> r.studentNo</span><br><span class="line"></span><br><span class="line"><span class="comment">--LEFT Join</span></span><br><span class="line"><span class="keyword">SELECT</span> s.studentNo,studentName,SubjectNo,StudentResult</span><br><span class="line"><span class="keyword">FROM</span> student <span class="keyword">AS</span> s</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> <span class="keyword">result</span> <span class="keyword">AS</span> r</span><br><span class="line"><span class="keyword">ON</span> s.studentNo <span class="operator">=</span> r.studentNo</span><br></pre></td></tr></table></figure>
 
 <table>
@@ -1123,18 +1124,18 @@
 <p><img src="/2023/07/10/MySQL/1613892963731.png"></p>
 <p><strong>一致性（Consistency）</strong></p>
 <p>事务前后的数据完整性要保持一致</p>
-<p><img src="/2023/07/10/MySQL/1613892994431.png" alt="1613892994431"></p>
+<p><img src="/2023/07/10/MySQL/1613892994431.png"></p>
 <p><strong>持久性（Durability）</strong>–事务提交</p>
 <p>事务一旦提交就不可逆转，被持久化到数据库中</p>
-<p><img src="/2023/07/10/MySQL/1613893017737.png" alt="1613893017737"></p>
+<p><img src="/2023/07/10/MySQL/1613893017737.png"></p>
 <p><strong>隔离性</strong></p>
 <p>事务的隔离是多个用户并发访问数据库，数据库为每一个用户开启的事务，不能被其他事务夫人操作数据所干扰，事务之间要相互隔离。</p>
-<p><img src="/2023/07/10/MySQL/1613893059228.png" alt="1613893059228"></p>
+<p><img src="/2023/07/10/MySQL/1613893059228.png"></p>
 <blockquote>
 <p>隔离产生的问题</p>
 </blockquote>
 <h3 id="脏读："><a href="#脏读：" class="headerlink" title="脏读："></a>脏读：</h3><p>指一个事务读取了另外一个事务未提交的数据。</p>
-<p><img src="/2023/07/10/MySQL/1613893084165.png" alt="1613893084165"></p>
+<p><img src="/2023/07/10/MySQL/1613893084165.png"></p>
 <h3 id="不可重复读："><a href="#不可重复读：" class="headerlink" title="不可重复读："></a>不可重复读：</h3><p>在一个事务内读取表中的某一行数据，多次读取结果不同。（这个不一定是错误，只是某些场合不对）</p>
 <p><img src="/2023/07/10/MySQL/1613893105450.png" alt="1613893105450"></p>
 <h3 id="虚读-幻读"><a href="#虚读-幻读" class="headerlink" title="虚读(幻读)"></a>虚读(幻读)</h3><p>是指在一个事务内读取到了别的事务插入的数据，导致前后读取不一致。<br>（一般是行影响，多了一行）</p>
@@ -1199,7 +1200,7 @@
 <h1 id="8、权限管理和备份"><a href="#8、权限管理和备份" class="headerlink" title="8、权限管理和备份"></a>8、权限管理和备份</h1><h3 id="8-1用户管理"><a href="#8-1用户管理" class="headerlink" title="8.1用户管理"></a>8.1用户管理</h3><blockquote>
 <p>SQLyog 可视化管理</p>
 </blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200708013449970.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzOTU2NTM2,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2023/07/10/MySQL/20200708013449970.png"></p>
 <blockquote>
 <p>SQL命令操作</p>
 </blockquote>
