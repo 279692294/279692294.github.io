@@ -493,7 +493,7 @@
 <p>show tables 查看当前数据库中的表</p>
 <p>create table 表名 （字段 类型）；创建表</p>
 <p>insert into 表名 values(数据)：插入数据</p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1652953132370-1688975664948.png"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1652953132370.png"></p>
 <p>出现了中文乱码，要修改vim &#x2F;etc&#x2F;my.cnf</p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1652953632623.png"></p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1652953652278.png"></p>
@@ -792,10 +792,10 @@
 <li><p>PRIMARY - 查询中若包含任何复杂的子部分，最外层查询则被标记为。</p>
 </li>
 <li><p>SUBQUERY - 在SELECT或WHERE列表中包含了子查询。</p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1653382073692.png" alt="1653382073692"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1653382073692.png"></p>
 </li>
 <li><p>DERIUED - 在FROM列表中包含的子查询被标记为DERIVED（衍生）MySQL会递归执行这些子查询，把结果放在临时表里。</p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1653382179065-1688977715358.png"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1653382179065.png"></p>
 </li>
 <li><p>UNION - 若第二个SELECT出现在UNION之后，则被标记为UNION；若UNION包含在FROM子句的子查询中外层SELECT将被标记为：DERIVED。</p>
 </li>
@@ -1335,7 +1335,7 @@
 
 <p> 日志记录： </p>
 <p>到这个文件中去找</p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654521794229.png" alt="1654521794229"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654521794229-1688999366994.png"></p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654522015698.png"></p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654522114151.png"></p>
 <p> <strong>查询当前系统中有多少条慢查询记录</strong> </p>
@@ -1502,8 +1502,9 @@
 
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654604599100.png"></p>
 <p> <strong>加读锁——为mylock表加read锁（读阻塞写例子）</strong> </p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654604862268-1688998429536.png"></p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654605043025-1688998443126.png"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654604862268-1688999179924.png"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654605043025-1688999234651.png"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/-1688998443126.png"></p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654605170571.png"></p>
 <h4 id="4-2-2-写锁"><a href="#4-2-2-写锁" class="headerlink" title="4.2.2 写锁"></a>4.2.2 写锁</h4><p>为mylock表加write锁（MylSAM存储引擎的写阻塞读例子）</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lock <span class="keyword">table</span> mylock write;</span><br></pre></td></tr></table></figure>
@@ -1609,9 +1610,8 @@
 <p>两个客户端更新不同的记录</p>
 <p>session1</p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654682840399.png"></p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/"></p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654682840399.png"></p>
-<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654682911231.png" alt="1654682911231"></p>
+<p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654682911231-1688999100693.png"></p>
 <p>session2</p>
 <p><img src="/2023/07/10/MySQL%E9%AB%98%E7%BA%A7/1654682890146.png"></p>
 <p>两个客户端对不同的记录进行更改，互不影响，都commit提交后数据都改完了</p>
